@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Palm Oil Counter</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        /* Flash Message Popup Styling */
+.flash-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+    display: none;
+}
+
+.flash-message-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    animation: fade-in-out 4s;
+}
+
+.flash-message-content.success {
+    border-left: 5px solid green;
+}
+
+.flash-message-content.danger {
+    border-left: 5px solid red;
+}
+
+@keyframes fade-in-out {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+    </style>
+
+</head>
+
+<body id="top">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Page Wrap -->
+    <div id="page" class="s-pagewrap">
+        <!-- Site Header -->
+        <header id="masthead" class="s-header">
+            <div class="s-header__branding">
+                <p class="site-title">
+                    <a href="/" rel="home">Palm Oil Counter.</a>
+                </p>
+            </div>
+            <div class="row s-header__navigation">
+                <nav class="s-header__nav-wrap">
+                    <h3 class="s-header__nav-heading">Navigate to</h3>
+                    <ul class="s-header__nav">
+                        <li><a href="/" title="">Home</a></li>
+                        <li class="current-menu-item"><a href="/login" title="">Login</a></li>
+                        <li><a href="/register" title="">Register</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Site Content -->
+        <div id="content" class="s-content s-content--page">
+            <div class="row entry-wrap">
+                <div class="column lg-12">
+                    <article class="entry">
+                        <header class="entry__header entry__header--narrow">
+                            <h1 class="entry__title">Please LogIn.</h1>
+                        </header>
+                        <div class="entry__media">
+                            <figure class="featured-image">
+                                <img src="../static/images/img/p5.jpg" alt="Login Image" />
+                            </figure>
+                        </div>
+                        <div class="content-primary">
+                            <div class="entry__content">
+                                <h4>Provide Login details.</h4>
+                                <form name="cForm" id="cForm" class="entry__form" method="post" action="/login">
+                                    <fieldset class="row">
+                                        <div class="column lg-12 form-field">
+                                            <input name="email" id="cEmail" class="u-fullwidth" placeholder="Your Email" value="" type="email" required>
+                                        </div>
+                                        <div class="column lg-12 form-field">
+                                            <input name="password" id="cPassword" class="u-fullwidth" placeholder="Your Password" value="" type="password" required>
+                                        </div>
+                                        <div class="column lg-12">
+                                            <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large u-fullwidth" value="Submit" type="submit">
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="colophon" class="s-footer">
+            <div class="row s-footer__bottom">
+                <div class="column lg-5 md-6 tab-12">
+                    <div class="ss-copyright">
+                        <span>© Copyright Palm Oil Counter</span>
+                        <span>Design by <a href="#">Palm Oil Counter</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 10.25L12 4.75L6.75 10.25" />
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19.25V5.75" />
+                    </svg>
+                </a>
+            </div>
+        </footer>
+    </div>
+    <div id="flash-message" class="flash-message">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="flash-message-content {{ category }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+        <!-- Java Script
+        ================================================== -->
+        <script>
+            // Display Flash Messages
+            document.addEventListener("DOMContentLoaded", function () {
+                const flashMessage = document.getElementById("flash-message");
+                if (flashMessage) {
+                    flashMessage.style.display = "block";
+                    setTimeout(() => {
+                        flashMessage.style.display = "none";
+                    }, 4000); // Auto-hide after 4 seconds
+                }
+            });
+        </script>
+
+    <!-- JavaScript -->
+    <script src="../static/js/plugins.js"></script>
+    <script src="../static/js/main.js"></script>
+
+    <!-- Flash Message Popup -->
+    
+</body>
+
+</html>

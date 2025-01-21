@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js" >
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Palm Oil Counter</title>
+
+    <script>
+        document.documentElement.classList.remove('no-js');
+        document.documentElement.classList.add('js');
+    </script>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="../static/css/vendor.css">
+    <link rel="stylesheet" href="../static/css/styles.css">
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <style>
+        /* Flash Message Popup Styling */
+.flash-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    width: 300px;
+    display: none;
+}
+
+.flash-message-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    animation: fade-in-out 4s;
+}
+
+.flash-message-content.success {
+    border-left: 5px solid green;
+}
+
+.flash-message-content.danger {
+    border-left: 5px solid red;
+}
+
+@keyframes fade-in-out {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+    </style>
+
+</head>
+
+<body id="top">
+
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <!-- page wrap
+    ================================================== -->
+    <div id="page" class="s-pagewrap">
+
+
+        <!-- # site header 
+        ================================================== -->
+        <header id="masthead" class="s-header">
+
+            <div class="s-header__branding">
+                <p class="site-title">
+                    <a href="/" rel="home">Palm Oil Counter.</a>
+                </p>
+            </div>
+
+            <div class="row s-header__navigation">
+
+                <nav class="s-header__nav-wrap">
+    
+                    <h3 class="s-header__nav-heading">Navigate to</h3>
+    
+                    <ul class="s-header__nav">
+                        <li ><a href="/" title="">Home</a></li>
+                        <li ><a href="/login" title="">Login</a></li>
+                        <li class="current-menu-item"><a href="/register" title="">Register</a></li>
+                    </ul> <!-- end s-header__nav -->
+
+                </nav> <!-- end s-header__nav-wrap -->
+    
+            </div> <!-- end s-header__navigation -->
+
+           
+
+            
+
+        </header> <!-- end s-header -->
+
+        <!-- # site-content
+        ================================================== -->
+        <div id="content" class="s-content s-content--page">
+
+                <div class="row entry-wrap">
+                    <div class="column lg-12">
+
+                        <article class="entry">
+
+                            <header class="entry__header entry__header--narrow">
+    
+                                <h1 class="entry__title">
+                                    Register Here.
+                                </h1>
+    
+                            </header>
+
+                            <div class="entry__media">
+                                <figure class="featured-image">
+                                    <img src="../static/images/img/p5.jpg" 
+                                      srcset="../static/images/img/p5.jpg 2400w, 
+                                      ../static/images/img/p5.jpg 1200w, 
+                                      ../static/images/img/p5.jpg 600w" sizes="(max-width: 2400px) 100vw, 2400px" alt="">
+                                </figure>
+                            </div>
+
+                            <div class="content-primary">
+
+                                <div class="entry__content">
+        
+                                    
+                                    <h4>Please fill the details.</h4>
+
+                                    <form name="cForm" id="cForm" class="entry__form" method="post" action="/register" >
+                                        <fieldset class="row">
+                                            
+                                            <div class="column lg-12  form-field">
+                                                <input name="name" id="cName" class="u-fullwidth" placeholder="Your Name" value="" type="text">
+                                            </div>
+
+                                            <div class="column lg-12  form-field">
+                                                <input name="email" id="cName" class="u-fullwidth" placeholder="Your Email" value="" type="email">
+                                            </div>
+
+                                            <div class="column lg-12 form-field">
+                                                <input name="password" id="cWebsite" class="u-fullwidth" placeholder="Your Password" value="" type="password">
+                                            </div>
+
+                                            <div class="column lg-12 form-field">
+                                                <input name="confirm_password" id="cWebsite" class="u-fullwidth" placeholder="Confirm Password" value="" type="password">
+                                            </div>
+
+                                            
+
+                                            <div class="column lg-12">
+                                                <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large u-fullwidth" value="Submit" type="submit">
+                                            </div>
+
+                                        </fieldset>
+                                    </form> <!-- end form -->
+
+                            </div> <!-- end content-primary -->
+
+                        </article> <!-- end entry -->
+
+                    </div>
+                </div> <!-- end entry-wrap -->
+        </section> <!-- end s-content -->
+
+
+        <!-- # site-footer
+        ================================================== -->
+        <footer id="colophon" class="s-footer">
+
+           
+            <div class="row s-footer__bottom">
+
+               
+                <div class="column lg-5 md-6 tab-12">
+                    <div class="ss-copyright">
+                        <span>© Copyright Palm Oil Counter</span> 
+                        <span>Design by <a href="https://www.styleshout.com/">Palm Oil</a> Counter <a href="https://themewagon.com">Detector</a></span>
+                    </div>
+                </div>
+
+            </div> <!-- end s-footer__bottom -->
+           
+            <div class="ss-go-top">
+                <a class="smoothscroll" title="Back to Top" href="#top">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.25 10.25L12 4.75L6.75 10.25"/>
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19.25V5.75"/>
+                    </svg>
+                </a>
+            </div> <!-- end ss-go-top -->
+
+        </footer><!-- end s-footer -->
+        <div id="flash-message" class="flash-message">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="flash-message-content {{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+            {% endwith %}
+        </div>
+            <!-- Java Script
+            ================================================== -->
+            <script>
+                // Display Flash Messages
+                document.addEventListener("DOMContentLoaded", function () {
+                    const flashMessage = document.getElementById("flash-message");
+                    if (flashMessage) {
+                        flashMessage.style.display = "block";
+                        setTimeout(() => {
+                            flashMessage.style.display = "none";
+                        }, 4000); // Auto-hide after 4 seconds
+                    }
+                });
+            </script>
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="../static/js/plugins.js"></script>
+    <script src="../static/js/main.js"></script>
+
+</body>
+</html>
